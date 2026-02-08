@@ -3,6 +3,7 @@ using UnityEngine;
 public class TestPlayerController : MonoBehaviour
 {
     public float movementSpeed = 10f;
+    public SpawnManager spawnManager;
     void Start()
     {
 
@@ -16,5 +17,10 @@ public class TestPlayerController : MonoBehaviour
         transform.Translate(new Vector3(hMovement, 0, vMovement)*Time.deltaTime);
 
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        spawnManager.SpawnTriggerEntered();
     }
 }

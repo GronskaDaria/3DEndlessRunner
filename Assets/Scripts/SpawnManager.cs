@@ -2,15 +2,24 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    RoadSpawner roadSpawner;
+    PlotSpawner plotSpawner;
     void Start()
     {
-        
+        roadSpawner= gameObject.GetComponent<RoadSpawner>();
+        plotSpawner=gameObject.GetComponent<PlotSpawner>();
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+
+    public void SpawnTriggerEntered()
+    {
+        roadSpawner.MoveRoad();
+        plotSpawner.SpawnPlot();
+    }
+    
 }
